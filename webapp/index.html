@@ -7,6 +7,7 @@
 		
 		<header>
 			header
+			{{'username' | translate}}
 		</header>
 		
 		<section ng-view>
@@ -14,13 +15,22 @@
 		</section>
 		
 		<footer>
-			footer
+			<a href="" ng-click="changeLanguage('EN')">English</a> | <a href="" ng-click="changeLanguage('VI')">Việt Nam</a>
 		</footer>
 		
 		<script src="bower_components/angular/angular.js"></script>
+		<!--  -->
 		<script src="bower_components/angular-route/angular-route.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+		<script src="bower_components/angular-translate/angular-translate.js"></script>
+		<script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+		<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+		<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+		<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+		
 		
 		<script src="app/app.js"></script>
+		<script src="app/modules/authentication/services.js"></script>
 		<script src="app/controllers.js"></script>
 		
 	</body>

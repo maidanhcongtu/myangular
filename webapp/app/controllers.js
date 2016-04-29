@@ -39,4 +39,23 @@
 				} */
 			}
 		}])
+		.controller("UserCtrl",["$scope",function($scope){
+			
+			console.log("ok man");
+			
+			$scope.user = {};
+			$scope.user.addMode = false;
+			$scope.user.editMode = false;
+			//define usermodel use for add/edit
+			$scope.user.userModel = User;
+			$scope.$watch("user.addMode", function(oldVal, newVal){
+				console.log("cahnge  " + oldVal + " new " + newVal);
+			});
+			
+			//save user
+			$scope.user.saveUser = function() {
+				console.log("--- save user ----");
+				console.dir($scope.user.userModel);
+			}
+		}])
 })()

@@ -1,0 +1,11 @@
+<a href="" ng-show="!user.addMode" ng-click="user.addMode=true"> + add new user</a>
+
+<div ng-show="user.addMode">
+	<form>
+		username : <input type="text" ng-model="user.userModel.username"> <br/>
+		password : <input type="password" ng-model="user.userModel.password"> <br/>
+		name     : <input type="text" ng-model="user.userModel.name"> <br/>
+		birthdate: <input type="date" ng-model="user.userModel.birthDate"> <br/>
+		<input type="submit" value="add" ng-click="user.saveUser"/> | <input type="reset" value="reset" /> | <input type="button" ng-click="user.addMode=false" value="close"/>
+	</form>
+</div>

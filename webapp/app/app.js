@@ -16,6 +16,10 @@
 				templateUrl: "",
 				controller : "LogoutCtrl"
 			})
+			.when("/users",{
+				templateUrl : "app/partials/user/users.html",
+				controller : "UserCtrl"
+			})
 			.when("/",{
 				templateUrl : "app/partials/home/home.html",
 			})

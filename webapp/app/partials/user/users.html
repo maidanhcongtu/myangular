@@ -2,10 +2,22 @@
 
 <div ng-show="user.addMode">
 	<form>
-		username : <input type="text" ng-model="user.userModel.username"> <br/>
-		password : <input type="password" ng-model="user.userModel.password"> <br/>
-		name     : <input type="text" ng-model="user.userModel.name"> <br/>
-		birthdate: <input type="date" ng-model="user.userModel.birthDate"> <br/>
-		<input type="submit" value="add" ng-click="user.saveUser"/> | <input type="reset" value="reset" /> | <input type="button" ng-click="user.addMode=false" value="close"/>
+		username : <input type="text" ng-model="user.userModel.username" /> <br/>
+		password : <input type="password" ng-model="user.userModel.password" /> <br/>
+		birthdate: <input type="date" ng-model="user.userModel.birthDate" /> <br/>
+		<input type="submit" value="add" ng-click="user.saveUser()"/> | <input type="reset" value="reset" /> | <input type="button" ng-click="user.addMode=false" value="close"/>
 	</form>
 </div>
+
+<br/>
+
+<div>
+	<table>
+		<tr ng-repeat="user in user.users">
+			<td>{{user.username}}</td>
+			<td>{{user.password}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.birthDate | date:"yyyy-MM-dd"}}</td>
+		</tr>
+	</table>
+<div>

@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"main": "index.html",
 	"scripts": {
-		"start": "nodewebkit"
+		"start": "nw"
 	},
 	"dependencies": {
 		"body-parser": "^1.15.0",
@@ -21,6 +21,6 @@
 		"toolbar": true
 	},
 	"devDependencies": {
-		"nw": "latest"
+		"nw": "0.12.2"
 	}
 }

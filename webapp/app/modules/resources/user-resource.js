@@ -1,5 +1,5 @@
 var UserResource = function(){
-	this.addUser = function(user) {
-		console.dir(user);
-	}
+	this.storage = new LowDbStorage("users");
 }
+inheritFrom(UserResource, Resource);
+

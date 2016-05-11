@@ -3,6 +3,6 @@
 		<div ng-show="login.msgLoginFail != ''">{{login.msgLoginFail}}</div>
 		{{"login.username" | translate}}: <input type='text' ng-model="login.username"/><br/>
 		{{"login.password" | translate}}: <input type='password' ng-model="login.password"/><br/>
-		<input type='submit' value="{{'login.login' | translate}}" />
+		<input type='submit' value="{{'login.login' | translate}}" /> | <input type="button" value="add admin" ng-click="login.addAdminAcc()" />
 	</form>
 </div>

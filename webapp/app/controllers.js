@@ -12,11 +12,24 @@
 		}])
 		.controller("LoginCtrl",["$scope","$location", "AuthenticationService",function($scope, $location, AuthenticationService){
 			
+			var userResource = new UserResource();
+			
 			//clear credentials
 			AuthenticationService.ClearCredentials();
 			
 			//object for login page
 			$scope.login = {};
+			
+			//create admin account
+			$scope.login.addAdminAcc = function() {
+				var adminUser = new User();
+				adminUser.id = 1;
+				adminUser.username = "admin";
+				adminUser.password = "admin";
+				
+				userResource.save(adminUser);
+			}
+			
 			$scope.login.submit = function() {
 				AuthenticationService.login($scope.login.username, $scope.login.password, function(response){
 					if(response.success) {

@@ -27,11 +27,30 @@
 				adminUser.username = "admin";
 				adminUser.password = "admin";
 				
-				userResource.save(adminUser);
+				userResource.save(adminUser, function(err){
+					console.log(err);
+				});
+			}
+			
+			//print data test
+			$scope.login.printDataTest = function() {
+				userResource.findAll(function(data){
+					console.log(data);
+				});
+			}
+			
+			$scope.login.destroyData = function() {
+				userResource.deleteAll(function(err){
+					console.log(err);
+				});
 			}
 			
 			$scope.login.submit = function() {
-				AuthenticationService.login($scope.login.username, $scope.login.password, function(response){
+			/*userResource.find({username:$scope.login.username,password:$scope.login.password}, function(data){
+				console.log(data);
+			});*/
+				
+				AuthenticationService.login($scope.login.username, $scope.login.password, userResource, function(response){
 					if(response.success) {
 						AuthenticationService.SetCredentials($scope.login.username, $scope.login.password);
 						//redirect to main page

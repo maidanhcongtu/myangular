@@ -4,3 +4,10 @@ var User = function() {
 	this.password = "";
 	this.birthDate = new Date().getTime();	
 }
+
+var UserSchemaDefine = {
+	id : Number,
+	username : String,
+	password : String,
+	birthDate : Number	
+}

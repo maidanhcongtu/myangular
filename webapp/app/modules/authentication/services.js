@@ -4,21 +4,21 @@
 		.factory("AuthenticationService",["$http","$cookieStore","$rootScope","$timeout",function($http, $cookieStore, $rootScope, $timeout){
 			var service = {};
 			
-			//UserResource
-			var userResource = new UserResource();
-			
 			/* dummy login service */
-			service.login = function(username, password, callback){
+			service.login = function(username, password, userResource, callback){
+
 				$timeout(function(){
 					
-					var userObj = userResource.find({username:username,password:password});
-					var response = {};
-					if(userObj === undefined) {
-						response.message = "Username or password incorrect";
-					} else {
-						response.success = true;
-					}
-					callback(response);
+					userResource.find({username:username,password:password}, function(data){
+						var response = {};
+						if(data.length == 0) {
+							response.message = "Username or password incorrect";
+						} else {
+							response.success = true;
+						}
+						callback(response);
+					});
+					
 				},1000);
 			}
 			

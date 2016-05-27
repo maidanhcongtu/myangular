@@ -52,7 +52,16 @@
 		$translateProvider.useLocalStorage();
 		
 	}])
-	.run(["$rootScope","$http","$cookieStore","$location",function($rootScope, $http, $cookieStore, $location){
+	.run(["$rootScope","$http","$cookieStore","$location","$window",function($rootScope, $http, $cookieStore, $location, $window){
+		
+		var windowElement = angular.element($window);
+		console.log(windowElement);
+		windowElement.on('beforeunload', function (event) {
+			// do whatever you want in here before the page unloads.        
+			alert(22);
+			// the following line of code will prevent reload or navigating away.
+			event.preventDefault();
+		});
 		
 		//keep user logined after refresh page
 		$rootScope.globals = $cookieStore.get("globals") || {};
